@@ -1,4 +1,4 @@
-# code-btl-dstt.m
+% code-btl-dstt.m
 %% BÀI TẬP LỚN ĐẠI SỐ TUYẾN TÍNH
 clc; clear; close all;
 
