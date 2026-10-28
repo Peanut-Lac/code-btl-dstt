@@ -6,6 +6,7 @@ clc; clear; close all;
 
 
 
+
 format short g; % Tự động ẩn bớt các số 0 thừa (hiển thị 1 thay vì 1.0000)
 % 1. Nhập cấp của ma trận
 while true
@@ -45,6 +46,42 @@ disp(A);
 
 
 %% BƯỚC 2 (Mạnh): Đưa về dạng Hessenberg (bằng phương pháp Householder)
+
+
+
+H = A; % Tạo bản sao H để giữ nguyên ma trận A gốc
+for k = 1:(n - 2)
+    m = n - k;
+    x = H(k+1:n, k);
+    
+    norm_x = norm(x);
+    if norm_x == 0
+        continue;
+    end
+    
+    s = sign(x(1));
+    if s == 0
+        s = 1;
+    end
+    alpha = -s * norm_x;
+    
+    u = x;
+    u(1) = u(1) - alpha;
+    v = u / norm(u);
+    
+    % Tạo ma trận Householder P_k
+    P_prime = eye(m) - 2 * (v * v');
+    P_k = eye(n);
+    P_k(k+1:n, k+1:n) = P_prime;
+    
+    % Biến đổi tương tự: H = P_k * H * P_k
+    H = P_k * H * P_k;
+end
+fprintf('----------------------\n');
+fprintf('\nMa trận Hessenberg của A là:\n');
+fprintf('H =\n');
+disp(H);
+
 
 
 %% BƯỚC 3 (Lạc): Phân rã QR của Hk bằng phép quay Givens
