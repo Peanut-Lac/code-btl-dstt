@@ -6,6 +6,46 @@ clc; clear; close all;
 
 
 
+                                   Pseudo code
+                                   
+// BƯỚC 1: Nhập và kiểm tra cấp ma trận (n)
+LẶP VÔ HẠN:
+    THỬ:
+        IN "Nhập cấp ma trận vuông n: "
+        NHẬP n
+        NẾU n là số VÀ n là số đơn VÀ n >= 1 VÀ n là số nguyên THÌ
+            THOÁT VÒNG LẶP
+        NGƯỢC LẠI:
+            IN "Lỗi: Kích thước phải là số nguyên dương! Nhập lại."
+    BẮT LỖI:
+        IN "Lỗi: Cú pháp không hợp lệ! Nhập lại."
+    KẾT THÚC
+KẾT THÚC LẶP
+
+// BƯỚC 2: Khởi tạo ma trận A kích thước n x n
+Khởi tạo ma trận A gồm n hàng và n cột (tất cả phần tử bằng 0)
+IN "Nhập các phần tử từng hàng (cách nhau bằng dấu cách, ví dụ: 1 5 7):"
+
+// BƯỚC 3: Nhập dữ liệu cho từng hàng của ma trận
+VỚI i TỪ 1 ĐẾN n LẦN:
+    LẶP VÔ HẠN:
+        IN "Hàng i: "
+        NHẬP chuỗi_hàng
+        mảng_số = CHUYỂN_CHUỖI_THÀNH_MẢNG_SỐ(chuỗi_hàng)
+
+        NẾU số_lượng_phần_tử(mảng_số) == n VÀ mảng_số LÀ VECTOR HÀNG THÌ
+            GÁN A[i, :] = mảng_số
+            THOÁT VÒNG LẶP
+        NGƯỢC LẠI:
+            IN "Lỗi: Cần nhập đúng n số trên hàng này! Hãy nhập lại."
+    KẾT THÚC LẶP
+KẾT THÚC FOR
+
+// BƯỚC 4: Hiển thị ma trận A
+IN "Ma trận đầu vào A ="
+IN ma_trận A
+
+                                    Code
 
 format short g; % Tự động ẩn bớt các số 0 thừa (hiển thị 1 thay vì 1.0000)
 % 1. Nhập cấp của ma trận
